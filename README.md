@@ -32,6 +32,7 @@
 - Availablity Zones
     - an availability zone is one or more discrete data centres with redundant power, networking and connectivity in a AWS region. This gives uses the ability to operate production applications and databases that are more highly available, fault tolerant and scaleable.
 ![INFRA](NA-500x500.f8738d3a3341a06a83fa838b927ba4b85b473918.png)
+![key](mapkey.png)
 
 ## Steps
 - Create a VPC with an IPV valid CIDR block
