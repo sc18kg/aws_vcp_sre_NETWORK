@@ -37,14 +37,26 @@
 
 ## Steps
 - Create a VPC with an IPV valid CIDR block
-  - `10.0.0.0/16` - Amy - `10.0.5.0/16`
+  - `10.0.0.0/16` - kieron - `10.105.1.0/16`
 - Create Internet Gateway (IG)
   - Attach the IG to our VPC - Each IG is a seperate resource that attaches to the VPC
 - Create our route tables
   - Edit route and insert the IG in `target`
 - Create Public Subnet
-  - `10.0.1.0/24`
+  - `10.105.0.0/24`
   - Associate Public Subnet with our RT
 - Create Public NACLs
   - Set the inbound and outbound rules for the subnet `port:80`, `port:3000`, `port:22` 
 - Create a Security Group for the app
+
+- Search VPC in the dashboard
+	- Select launch VPC with Single Public Subnet
+	- Name the VPC
+	- Public subnet IPv4 CIDR `10.105.1.0/24`
+	- Launch the VPC
+- Create IG
+	- Navigate to Internet Gateway 
+	- Follow the naming convention `SRE_kieron_IG`
+	- Attach IG to your created VPC `Actions > Attach to VPC` in this case if selected public VPC it will auto assign the Internet Gateway
+	- Navigate to AMI
+	- Launch your AMI on your own VPC
