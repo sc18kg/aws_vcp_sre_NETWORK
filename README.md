@@ -24,7 +24,7 @@
 
 ![NACLS](nacl-example-diagram.png)
 ## Security Groups
-- Secure network with full control over who is able to access the instances
+- A security group acts as a virtual firewall for your instances to control the incoming and outgoing traffic. When launching an instance you can specify the security group it belongs to. The aim is to create a secure network with full control over who is able to access the instances.
 
 ## Steps
 - Create a VPC with an IPV valid CIDR block
