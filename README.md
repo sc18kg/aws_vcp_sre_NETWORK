@@ -16,7 +16,7 @@
 ![SUBNET](vpc-configuration-new.png)
 
 ## Route Tables (RT)
-- Contains a set of rules, called routes which are used to determine where the network traffic of the subnets or gateway is directed
+- Each VPC has an implicit router, and you use route tables to control where the network traffic is directed. Each subnet must also be associated with a route table, this can be seperate from the main route table. If not specified the network will default to the main route table. Each table contains a set of rules, called routes which are used to determine where the network traffic of the subnets or gateway is directed
 
 ![ROUTETABLE](TBSja.png)
 ## Network Access Control List (NACLs)
@@ -25,6 +25,13 @@
 ![NACLS](nacl-example-diagram.png)
 ## Security Groups
 - A security group acts as a virtual firewall for your instances to control the incoming and outgoing traffic. When launching an instance you can specify the security group it belongs to. The aim is to create a secure network with full control over who is able to access the instances.
+
+## AWS Regions and Availablity Zones
+- Regions
+    - Each region is designed to be isolated from the other amazon regions, this achieves the greatest possible fault tolerance and stability. When viewing resources you are only able to see the resources that are tied to the specified region as they are not automatically replicated across regions.
+- Availablity Zones
+    - an availability zone is one or more discrete data centres with redundant power, networking and connectivity in a AWS region. This gives uses the ability to operate production applications and databases that are more highly available, fault tolerant and scaleable.
+![INFRA](NA-500x500.f8738d3a3341a06a83fa838b927ba4b85b473918.png)
 
 ## Steps
 - Create a VPC with an IPV valid CIDR block
