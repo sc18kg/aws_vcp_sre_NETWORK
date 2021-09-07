@@ -50,20 +50,20 @@
   - Set the inbound and outbound rules for the subnet `port:80`, `port:3000`, `port:22` 
 - Create a Security Group for the app
 ----
-### Create the VPC
+### Step 1 - Create the VPC
 - Search `VPC` in the dashboard
 	- Select launch VPC with Single Public Subnet
 	- Name the VPC
 	- Public subnet IPv4 CIDR `10.105.1.0/24`
 	- Launch the VPC
 ----
-### Create the Internet Gateway (IG)
+### Step 2 - Create the Internet Gateway (IG)
 - Search `Internet Gateway` in the dashboard
 	- Navigate to Internet Gateway 
 	- Follow the naming convention `SRE_kieron_IG`
 	- Attach IG to your created VPC `Actions > Attach to VPC` in this case if selected public VPC it will auto assign the Internet Gateway
 ----
-### Subnet Creation
+### Step 2 - Subnet Creation
 - Search `subnets` in the dashboard
 	- Click `create subnet`
 	- From the drop down select your VPC `vpc-0000000(SRE_kieron_vpc)`
@@ -71,7 +71,7 @@
 	- Enter a IPV4 CIDR block which should be in the range set for the VPC so for me its `10.105.1.0/24` for the new subnet
 	- For each new subnet change the IPV4 to be in range so private `10.105.2.0/24`
 ----
-### Creating Route Table (RT)
+### Step 3 - Creating Route Table (RT)
 - Search `Route Tables` in the dashboard
 	- Click `Create Route Table`
 	- Name the route table using the naming convention `SRE_kieron_RT` this may have already been completed automatically for you
@@ -79,7 +79,7 @@
 	- Go to `Routes` tab and `Edit Routes`
 	- Add the route with destination `0.0.0.0/0` and select `Internet Gateway` followed by your personal IG `SRE_kieron_IG`
 ----
-### Create Network Access Control List (NACLs)
+### Step 4 - Create Network Access Control List (NACLs)
 - Search `Network ACLs` in the dashboard
 	- Click `Create Network ACL`
 	- For this task we created two NACLs on Public and one Private
@@ -102,7 +102,7 @@
 ![PRIVOUT](privnaclout.png)
 ----
 
-### Now these are created Launch the EC2 Instances
+### Step 5 - Now these are created Launch the EC2 Instances
 - Navigate to AMI
 - Launch your AMI on your own VPC `vpc-0000000(SRE_kieron_vpc)`
 ----
