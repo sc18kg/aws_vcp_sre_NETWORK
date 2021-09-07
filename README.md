@@ -106,3 +106,5 @@
 - Navigate to AMI
 - Launch your AMI on your own VPC `vpc-0000000(SRE_kieron_vpc)`
 ----
+## S3 Information
+@@include [S3.md](includes/S3.md)
