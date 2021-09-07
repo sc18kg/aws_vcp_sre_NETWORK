@@ -49,7 +49,7 @@
 - Create Public NACLs
   - Set the inbound and outbound rules for the subnet `port:80`, `port:3000`, `port:22` 
 - Create a Security Group for the app
-
+----
 ### Create the VPC
 - Search `VPC` in the dashboard
 	- Select launch VPC with Single Public Subnet
