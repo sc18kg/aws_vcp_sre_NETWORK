@@ -89,12 +89,17 @@
 
 ### Public Subnet Rules
 #### Inbound
-#### Outbound
+![PUBIN](pubnaclin.png)
 
+#### Outbound
+![PUBOUT](pubnaclout.png)
 
 ### Private Subnet Rules
 #### Inbound
+![PRIVIN](privnaclin.png)
+
 #### Outbound
+![PRIVOUT](privnaclout.png)
 
 
 ### Now these are created Launch the EC2 Instances
