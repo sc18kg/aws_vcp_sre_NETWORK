@@ -35,7 +35,8 @@
 ![key](mapkey.png) - Edge Locations
 ![region](region.png) - Regions
 
-## Steps
+## Creating a Custom VPC with a Private and Public Subnet
+### Overview
 - Create a VPC with an IPV valid CIDR block
   - `10.0.0.0/16` - kieron - `10.105.1.0/16`
 - Create Internet Gateway (IG)
@@ -49,14 +50,54 @@
   - Set the inbound and outbound rules for the subnet `port:80`, `port:3000`, `port:22` 
 - Create a Security Group for the app
 
-- Search VPC in the dashboard
+### Create the VPC
+- Search `VPC` in the dashboard
 	- Select launch VPC with Single Public Subnet
 	- Name the VPC
 	- Public subnet IPv4 CIDR `10.105.1.0/24`
 	- Launch the VPC
-- Create IG
+
+### Create the Internet Gateway (IG)
+- Search `Internet Gateway` in the dashboard
 	- Navigate to Internet Gateway 
 	- Follow the naming convention `SRE_kieron_IG`
 	- Attach IG to your created VPC `Actions > Attach to VPC` in this case if selected public VPC it will auto assign the Internet Gateway
-	- Navigate to AMI
-	- Launch your AMI on your own VPC
+
+### Subnet Creation
+- Search `subnets` in the dashboard
+	- Click `create subnet`
+	- From the drop down select your VPC `vpc-0000000(SRE_kieron_vpc)`
+	- Name the subnet using the nameing convention `SRE_kieron_xxx_subnet`
+	- Enter a IPV4 CIDR block which should be in the range set for the VPC so for me its `10.105.1.0/24` for the new subnet
+	- For each new subnet change the IPV4 to be in range so private `10.105.2.0/24`
+
+### Creating Route Table (RT)
+- Search `Route Tables` in the dashboard
+	- Click `Create Route Table`
+	- Name the route table using the naming convention `SRE_kieron_RT` this may have already been completed automatically for you
+	- Select your VPC from the dropdown `vpc-0000000(SRE_kieron_vpc)`
+	- Go to `Routes` tab and `Edit Routes`
+	- Add the route with destination `0.0.0.0/0` and select `Internet Gateway` followed by your personal IG `SRE_kieron_IG`
+
+### Create Network Access Control List (NACLs)
+- Search `Network ACLs` in the dashboard
+	- Click `Create Network ACL`
+	- For this task we created two NACLs on Public and one Private
+	- Follow the naming convention for both of these NACLs `SRE_kieron_priv_NACL` and `SRE_kieron_pub_NACL`
+	- Select your vpc from the dropdown menu `vpc-0000000(SRE_kieron_vpc)`
+	- Once created we now have to change the `Inbound rules` and `Outbound rules` these are different for the Public and Private subnets 
+
+### Public Subnet Rules
+#### Inbound
+#### Outbound
+
+
+### Private Subnet Rules
+#### Inbound
+#### Outbound
+
+
+### Now these are created Launch the EC2 Instances
+- Navigate to AMI
+- Launch your AMI on your own VPC `vpc-0000000(SRE_kieron_vpc)`
+
