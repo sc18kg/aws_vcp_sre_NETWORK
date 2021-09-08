@@ -1,5 +1,5 @@
 # AWS Virtual Private Cloud (VPC)
-![AWSIMAGE](AWS_deployment_networking_security.png)
+![AWSIMAGE](images/AWS_deployment_networking_security.png)
 ## What is a VPC?
 - AWS isolated virtual network - it allows us to control virtual network environment including selections of your own IPs address range, we can create multiple subnets within one VPC with specific network configuration. We can use both IPV4 and IPV6 for most resources, It provides security for your services or instances.
 
