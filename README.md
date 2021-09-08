@@ -8,21 +8,21 @@
   - Provide a target in your VPC route tables for internet-routable traffic
   - Perform Network Address Translation for instances that have been assigned public IPV4 addresses.
 
-![INTGATE](sch-General-InternetGateways.png)
+![INTGATE](images/sch-General-InternetGateways.png)
 
 ## Subnets
 - A logical subdivision of an IP network, This enables us to split the network into both public and private networks which allows for more efficiency. The smaller interconnected networks are used to help minimise traffic and also navigate traffic security.
 
-![SUBNET](vpc-configuration-new.png)
+![SUBNET](images/vpc-configuration-new.png)
 
 ## Route Tables (RT)
 - Each VPC has an implicit router, and you use route tables to control where the network traffic is directed. Each subnet must also be associated with a route table, this can be seperate from the main route table. If not specified the network will default to the main route table. Each table contains a set of rules, called routes which are used to determine where the network traffic of the subnets or gateway is directed
 
-![ROUTETABLE](TBSja.png)
+![ROUTETABLE](images/TBSja.png)
 ## Network Access Control List (NACLs)
 - Stateless, Controls the traffic to or from a subnet according to a set of inbound and outbound rules which we have to explicitly. This is representing network level security at the subnet level. For example an inbound rule might deny incoming traffic from a range of IP addresses, while an outbound rule might allow all traffic to leave the subnet.
 
-![NACLS](nacl-example-diagram.png)
+![NACLS](images/nacl-example-diagram.png)
 ## Security Groups
 - A security group acts as a virtual firewall for your instances to control the incoming and outgoing traffic. When launching an instance you can specify the security group it belongs to. The aim is to create a secure network with full control over who is able to access the instances.
 
@@ -31,9 +31,9 @@
     - Each region is designed to be isolated from the other amazon regions, this achieves the greatest possible fault tolerance and stability. When viewing resources you are only able to see the resources that are tied to the specified region as they are not automatically replicated across regions.
 - Availablity Zones
     - an availability zone is one or more discrete data centres with redundant power, networking and connectivity in a AWS region. This gives uses the ability to operate production applications and databases that are more highly available, fault tolerant and scaleable.
-![INFRA](europe.png)
-![key](mapkey.png) - Edge Locations
-![region](region.png) - Regions
+![INFRA](images/europe.png)
+![key](images/mapkey.png) - Edge Locations
+![region](images/region.png) - Regions
 
 ## Creating a Custom VPC with a Private and Public Subnet
 ### Overview
@@ -89,17 +89,17 @@
 ----
 ### Public Subnet Rules
 #### Inbound
-![PUBIN](pubnaclin.png)
+![PUBIN](images/pubnaclin.png)
 
 #### Outbound
-![PUBOUT](pubnaclout.png)
+![PUBOUT](images/pubnaclout.png)
 ----
 ### Private Subnet Rules
 #### Inbound
-![PRIVIN](privnaclin.png)
+![PRIVIN](images/privnaclin.png)
 
 #### Outbound
-![PRIVOUT](privnaclout.png)
+![PRIVOUT](images/privnaclout.png)
 ----
 
 ### Step 5 - Now these are created Launch the EC2 Instances
